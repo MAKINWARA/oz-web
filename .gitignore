@@ -28,3 +28,9 @@ dante-astro-theme-main/
 
 LICENSE.txt
 README.txt
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
