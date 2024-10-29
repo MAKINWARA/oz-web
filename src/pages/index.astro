@@ -1,0 +1,268 @@
+---
+import { getCollection } from "astro:content"
+import Button from "../components/Button.astro"
+import Hero from "../components/Hero.astro"
+import PostPreview from "../components/PostPreview.astro"
+import ProjectPreview from "../components/ProjectPreview.astro"
+import siteConfig from "../data/site-config"
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { sortItemsByDateDesc } from "../utils/data-utils"
+
+const posts = (await getCollection("blog")).sort(sortItemsByDateDesc)
+const featuredPosts = posts.filter(({ data }: { data: { isFeatured: boolean } }) => data.isFeatured)
+
+const projects = (await getCollection("projects")).sort(sortItemsByDateDesc)
+const featuredProjects = projects.filter(
+	(project: { data: { isFeatured: boolean } }) => project.data.isFeatured
+)
+---
+
+<BaseLayout description={siteConfig.description} image={siteConfig.image}>
+	<Hero />
+
+	<section>
+		<h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-4xl">Projects</h2>
+		<div class="grid grid-cols-3 gap-4">
+			<div class="box blury-card h-60 w-60">
+				<img
+					class="block h-full w-full object-cover"
+					src="https://images.unsplash.com/photo-1632853073412-782bf0279d65?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAzMDA2MTI&ixlib=rb-4.0.3&q=85
+	"
+					alt="Blue Ridge Mountains"
+				/>
+				<div class="frame">
+					<h2>Las Vegas</h2>
+					<p>USA</p>
+				</div>
+			</div>
+			<div class="box blury-card h-60 w-60">
+				<img
+					class="block h-full w-full object-cover"
+					src="https://images.unsplash.com/photo-1632853073412-782bf0279d65?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAzMDA2MTI&ixlib=rb-4.0.3&q=85
+	"
+					alt="Blue Ridge Mountains"
+				/>
+				<div class="frame">
+					<h2>Las Vegas</h2>
+					<p>USA</p>
+				</div>
+			</div>
+			<div class="box blury-card h-60 w-60">
+				<img
+					class="block h-full w-full object-cover"
+					src="https://images.unsplash.com/photo-1632853073412-782bf0279d65?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAzMDA2MTI&ixlib=rb-4.0.3&q=85
+	"
+					alt="Blue Ridge Mountains"
+				/>
+				<div class="frame">
+					<h2>Las Vegas</h2>
+					<p>USA</p>
+				</div>
+			</div>
+			<div class="box blury-card h-60 w-60">
+				<img
+					class="block h-full w-full object-cover"
+					src="https://images.unsplash.com/photo-1632853073412-782bf0279d65?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAzMDA2MTI&ixlib=rb-4.0.3&q=85
+	"
+					alt="Blue Ridge Mountains"
+				/>
+				<div class="frame">
+					<h2>Las Vegas</h2>
+					<p>USA</p>
+				</div>
+			</div>
+			<div class="box blury-card h-60 w-60">
+				<img
+					class="block h-full w-full object-cover"
+					src="https://images.unsplash.com/photo-1632853073412-782bf0279d65?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAzMDA2MTI&ixlib=rb-4.0.3&q=85
+	"
+					alt="Blue Ridge Mountains"
+				/>
+				<div class="frame">
+					<h2>Las Vegas</h2>
+					<p>USA</p>
+				</div>
+			</div>
+			<div class="box blury-card h-60 w-60">
+				<img
+					class="block h-full w-full object-cover"
+					src="https://images.unsplash.com/photo-1632853073412-782bf0279d65?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODAzMDA2MTI&ixlib=rb-4.0.3&q=85
+	"
+					alt="Blue Ridge Mountains"
+				/>
+				<div class="frame">
+					<h2>Las Vegas</h2>
+					<p>USA</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- {
+        featuredProjects?.length > 0 && (
+            <div class="mb-16 sm:mb-24">
+                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Projects</h2>
+                {featuredProjects.map((project) => (
+                    <ProjectPreview project={project} class="mb-10 sm:mb-12" headingLevel="h3" />
+                ))}
+                <div class="mt-12 sm:mt-16">
+                    <Button href="/projects">View All Projects</Button>
+                </div>
+            </div>
+        )
+    }
+    {
+        featuredPosts?.length > 0 && (
+            <div class="mb-16 sm:mb-24">
+                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Writing</h2>
+                {featuredPosts.map((post) => (
+                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
+                ))}
+                <div class="mt-12 sm:mt-16">
+                    <Button href="/blog">View All Posts</Button>
+                </div>
+            </div>
+        )
+    } -->
+</BaseLayout>
+
+<style>
+	.wrapper {
+		width: 33.3%;
+		height: 100%;
+		padding: 10px;
+	}
+
+	.box {
+		position: relative;
+		max-height: 300px;
+		border-radius: 4px;
+		overflow: hidden;
+		box-shadow:
+			0 1.4px 1.7px rgba(0, 0, 0, 0.017),
+			0 3.3px 4px rgba(0, 0, 0, 0.024),
+			0 6.3px 7.5px rgba(0, 0, 0, 0.03),
+			0 11.2px 13.4px rgba(0, 0, 0, 0.036),
+			0 20.9px 25.1px rgba(0, 0, 0, 0.043),
+			0 50px 60px rgba(0, 0, 0, 0.06);
+	}
+	.box .hide {
+		opacity: 0;
+	}
+	.box .frame {
+		position: absolute;
+		border: 1px solid #fff;
+		z-index: 2;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.box h2,
+	.box p {
+		position: absolute;
+		color: #fff;
+		z-index: 2;
+		width: 100%;
+		transition:
+			opacity 0.2s,
+			transform 0.3s;
+	}
+	.box h2 {
+		font-weight: 500;
+		font-size: 22px;
+		margin-bottom: 0;
+		letter-spacing: 1px;
+	}
+	.box p {
+		bottom: 0;
+		font-size: 14px;
+		letter-spacing: 1px;
+	}
+	.box:hover {
+		transition: all 0.3s ease-in-out;
+	}
+	.box:hover:before {
+		transition: all 0.3s ease-in-out;
+	}
+	.box img {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		transition: all 0.3s ease-in-out;
+	}
+	.box img:hover {
+		transition: all 0.3s ease-in-out;
+	}
+	.box img:after {
+		content: "";
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.6);
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+	}
+	.box img:hover {
+		transition: all 0.3s ease-in-out;
+	}
+
+	.blury-card .frame {
+		width: calc(100% - 20px);
+		height: calc(100% - 20px);
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+	}
+	.blury-card h2,
+	.blury-card p {
+		text-align: center;
+		top: 50%;
+		transform: translatey(-50%);
+		margin: 0;
+		z-index: 3;
+	}
+	.blury-card p {
+		transform: translatey(30px);
+		letter-spacing: 3px;
+	}
+	.blury-card span {
+		font-size: 24px;
+	}
+	.blury-card:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: #008e6b;
+		z-index: 1;
+		left: 0;
+		opacity: 0;
+		transition: all 0.3s ease-in-out;
+	}
+	.blury-card img {
+		z-index: 2;
+	}
+	.blury-card:hover .frame {
+		width: calc(100% - 80px);
+		height: calc(100% - 80px);
+		opacity: 1;
+	}
+	.blury-card:hover img {
+		opacity: 0.7;
+	}
+	.blury-card:hover:before {
+		opacity: 1;
+		transition: all 0.3s ease-in-out;
+	}
+
+	@media screen and (max-width: 880px) {
+		.wrapper {
+			width: 50%;
+		}
+	}
+	@media screen and (max-width: 520px) {
+		.wrapper {
+			width: 100%;
+		}
+	}
+</style>
