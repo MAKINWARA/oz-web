@@ -8,6 +8,7 @@ export default defineConfig({
 	build: {
 		inlineStylesheets: "always",
 	},
+	site: "oz-web.vercel.app",
 	compressHTML: true,
 	prefetch: true,
 	integrations: [tailwind()],
