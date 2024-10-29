@@ -1,0 +1,35 @@
+{
+  "name": "oz-web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.2",
+    "astro": "^4.16.7",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3",
+    "marked": "^12.0.1"
+  },
+  "devDependencies": {
+    "@astrojs/vercel": "7.5.3",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-astro-organize-imports": "0.4.5",
+    "prettier-plugin-tailwindcss": "0.5.13",
+    "eslint": "9.0.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-astro": "0.34.0",
+    "lightningcss": "1.24.1",
+    "postcss": "8.4.38",
+    "postcss-import": "16.1.0",
+    "postcss-nesting": "12.1.1",
+    "@tailwindcss/typography": "^0.5.12"
+  }
+}
