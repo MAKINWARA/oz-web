@@ -11,7 +11,7 @@ export default defineConfig({
 	},
 	compressHTML: true,
 	prefetch: true,
-
+	output: "server",
 	integrations: [tailwind()],
 	adapter: vercel(),
 	vite: {
